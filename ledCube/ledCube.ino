@@ -51,6 +51,11 @@ void loop() {
       cls();
       delay(30);
     }
+    randomAll();
+    floorUp();
+    cls();
+    delay(50);
+    floorDown();
     patternSwitcher = !patternSwitcher;  //パターン切替
   }
   else if(fps == 300){  //加速切替
@@ -132,6 +137,52 @@ void pattern2(){
     }
     digitalWrite(gnd[floor], HIGH);
     delay(fps);
+  }
+}
+
+void floorUp(){
+  for(int roopCnt = 0 ; roopCnt < 2 ; roopCnt++){
+    for(int i = 0 ; i < ledNum ; i++) {
+      digitalWrite(gnd[i], LOW);
+      for(int j = 0 ; j < ledNum ; j++){ 
+        for(int k = 0 ; k < ledNum ; k++){
+          digitalWrite(line[j][k], HIGH);
+        }
+      }
+      delay(200);
+      digitalWrite(gnd[i], HIGH);
+    }
+  }
+}
+
+void floorDown(){
+  for(int roopCnt = 0 ; roopCnt < 2 ; roopCnt++){
+    for(int i = 2 ; i >= 0 ; i--) {
+      digitalWrite(gnd[i], LOW);
+      for(int j = 0 ; j < ledNum ; j++){ 
+        for(int k = 0 ; k < ledNum ; k++){
+          digitalWrite(line[j][k], HIGH);
+        }
+      }
+      delay(200);
+      digitalWrite(gnd[i], HIGH);
+    }
+  }
+}
+
+void randomAll() {
+  for(int roopCnt = 0 ; roopCnt < 10 ; roopCnt++){
+    for(int i = 0 ; i < ledNum ; i++){
+      digitalWrite(gnd[i], LOW);
+      digitalWrite(line[random(0,3)][random(0,3)], HIGH);
+      digitalWrite(line[random(0,3)][random(0,3)], HIGH);
+      delay(100);
+      digitalWrite(line[random(0,3)][random(0,3)], LOW);
+      digitalWrite(line[random(0,3)][random(0,3)], LOW);
+      digitalWrite(line[random(0,3)][random(0,3)], LOW);
+      digitalWrite(line[random(0,3)][random(0,3)], LOW);
+      digitalWrite(gnd[i], HIGH);
+    }
   }
 }
 
