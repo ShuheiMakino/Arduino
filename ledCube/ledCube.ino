@@ -186,6 +186,68 @@ void randomAll() {
   }
 }
 
+void fill(){
+  for(int i = 0 ; i < ledNum ; i++){
+    digitalWrite(line[1][i], HIGH);
+  }
+  digitalWrite(gnd[0], LOW);
+  delay(200);
+  cls();
+  delay(200);
+  
+  for(int i = 0 ; i < ledNum ; i++){
+    for(int j = 0 ; j < ledNum ; j++){
+      digitalWrite(line[i][j], HIGH);
+    }
+  }
+  digitalWrite(gnd[0], LOW);
+  delay(200);
+  cls();
+  delay(200);
+  
+  for(int i = 0 ; i < ledNum ; i++){
+    digitalWrite(line[1][i], HIGH);
+  }
+  digitalWrite(gnd[0], LOW);
+  digitalWrite(gnd[1], LOW);
+  delay(200);
+  cls();
+  delay(200);
+  
+  for(int i = 0 ; i < ledNum ; i++){
+    for(int j = 0 ; j < ledNum ; j++){
+      digitalWrite(line[i][j], HIGH);
+    }
+  }
+  digitalWrite(gnd[0], LOW);
+  digitalWrite(gnd[1], LOW);
+  delay(200);
+  cls();
+  delay(200);
+  
+  for(int i = 0 ; i < ledNum ; i++){
+    digitalWrite(line[1][i], HIGH);
+  }
+  digitalWrite(gnd[0], LOW);
+  digitalWrite(gnd[1], LOW);
+  digitalWrite(gnd[2], LOW);
+  delay(200);
+  cls();
+  delay(200);
+  
+  for(int i = 0 ; i < ledNum ; i++){
+    for(int j = 0 ; j < ledNum ; j++){
+      digitalWrite(line[i][j], HIGH);
+    }
+  }
+  digitalWrite(gnd[0], LOW);
+  digitalWrite(gnd[1], LOW);
+  digitalWrite(gnd[2], LOW);
+  delay(200);
+  cls();
+  delay(200);
+}
+    
 /* 全点灯 */
 void all() {
   for(int i = 0; i < ledNum; i++) {
